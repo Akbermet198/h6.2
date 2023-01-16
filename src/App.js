@@ -1,23 +1,40 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+// import classes from './components/Charts/Chart.module.css' 
+import { Expenses } from './components/expenses/Expenses';
+import { NewExpence } from './components/new-expense/new-expenses';
 
+const expensesDefault =[
+  {
+    title: 'Шампунь',
+    price: 400,
+    date:  " 2022-11-10" ,
+  },
+  {
+    title: 'Зарядник',
+    price: 200,
+    date:   "2021-01-11" ,
+  },
+]
 function App() {
+
+  const [expenses, setExpenses ] = useState(expensesDefault) 
+
+const addNewExpenseHandler = (data )=>{
+  console.log("asdhasd")
+  const updatedExpenses = [...expenses]
+  updatedExpenses.push(data)
+  setExpenses(updatedExpenses)
+
+
+  }  
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div /* className={classes.chartGreen} */>
+       <NewExpence onNewExpenseAdd={addNewExpenseHandler}/>
+     <Expenses expenses = {expenses}/>
+    
     </div>
   );
 }
