@@ -11,9 +11,10 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-around;
   height: 10rem;
-  width: 650px;
+   
   height: 60px;
-  margin-left: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
   background-color:  #F8DFFF;
   
 

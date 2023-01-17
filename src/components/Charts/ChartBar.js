@@ -1,35 +1,4 @@
 import styled from "styled-components";
-import "./ChartBar.css";
-
-const Chartbar = styled.div`
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #f8dfff;
-`;
-const ChartBarInner = styled.div`
-  height: 100px;
-  width: 100%;
-  border: 1px solid #313131;
-  border-radius: 12px;
-  background-color: #c3b4f3;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-`;
-const ChartBarFill = styled.div`
-  background-color: #4826b9;
-  width: 100%;
-  transition: all 0.3s ease-out;
-`;
-const ChartBarLabel = styled.p`
-  font-weight: bold;
-  font-size: 0.5rem;
-  text-align: center;
-  color: black;
-`;
 
 export const ChartBar = (props) => {
   const maximalPrice = 2000;
@@ -38,10 +7,41 @@ export const ChartBar = (props) => {
   return (
     <Chartbar>
       <ChartBarInner>
-        <ChartBarFill style={{ height: `${percentage}%` }}> </ChartBarFill>
-
-        <ChartBarLabel>{props.label}</ChartBarLabel>
+        <ChartBarFill style={{ height: `${percentage}%` }}></ChartBarFill>
+   
       </ChartBarInner>
+      <ChartBarLabel>{props.label}</ChartBarLabel>
     </Chartbar>
   );
 };
+
+const Chartbar = styled.div`
+  height: 100px;
+   
+   
+  background-color: #f8dfff;
+`;
+const ChartBarInner = styled.div`
+  height: 100px;
+  width: 100%;
+  border: 1px solid #313131;
+  border-radius: 12px;
+  background-color: #c3b4f3;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-end;
+   overflow: hidden;
+`;
+const ChartBarFill = styled.div`
+  background-color: #4826b9;
+  
+
+  transition: all 0.3s ease-out;
+`;
+const ChartBarLabel = styled.p`
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 0.5rem;
+  text-align: center;
+  color: black;
+`;

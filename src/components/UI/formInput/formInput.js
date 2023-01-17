@@ -7,19 +7,27 @@ const Container = styled.div`
   width: 340px;
   align-items: flex-start;
 `;
-
+const Label = styled.label`
+  height: 25px;
+  color: black;
+`;
+const Input = styled.input`
+  width: 100%;
+  height: 39px;
+  border-radius: 6px;
+  border: none;
+`;
 
 const FormInput = ({ id, labelName, placeholder, inputType, ...rest }) => {
   return (
     <Container>
-      <label htmlFor={id} >{labelName}</label>
-      <input
-      
+      <Label htmlFor={id}>{labelName}</Label>
+      <Input
         placeholder={placeholder || "..."}
         id={id}
         type={inputType}
-        {...rest}
-      ></input>
+        {...rest}>
+      </Input>
     </Container>
   );
 };

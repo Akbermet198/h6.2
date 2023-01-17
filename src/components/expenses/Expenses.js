@@ -4,16 +4,7 @@ import { ExpensesFilter } from "../expensesFilter/ExpensesFilter.jsx";
 import { Chart } from "../Charts/Chart";
 import styled from "styled-components";
 
-const Expense = styled.div`
-  width: 780px;
-  height: 100%;
-  margin: 0 auto;
-  background-color: #1f1f1f;
-  padding-right: 35px;
-  padding-bottom: 10px;
-  border-radius: 12px;
-  
-`;
+
 
 //  ExpensesFilter = styled.div`
 // background-color: ${(props)=>props.color}
@@ -33,10 +24,9 @@ export const Expenses = (props) => {
   });
 
   return (
-    <Expense>
-      <ExpensesFilter value={selectedYear} onChange={yearChangeHandler}/>
-        <Chart expenses={filteredItems} />
-  
+    <ExpenseDiv>
+      <ExpensesFilter value={selectedYear} onChange={yearChangeHandler} />
+      <Chart expenses={filteredItems} />
 
       {filteredItems.map((elem) => {
         return (
@@ -48,6 +38,16 @@ export const Expenses = (props) => {
           ></ExpensesItem>
         );
       })}
-    </Expense>
+    </ExpenseDiv>
   );
 };
+const ExpenseDiv = styled.div`
+  padding: 10px;
+  width: 780px;
+  height: 100%;
+  margin: 0 auto;
+  margin-top: 10px;
+  background-color: #1f1f1f;
+  border: none;
+  border-radius: 10px;
+`;
