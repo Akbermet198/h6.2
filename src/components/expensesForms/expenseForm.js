@@ -1,7 +1,6 @@
 import { useState } from "react";
- 
-import styled from "styled-components";
 
+import styled from "styled-components";
 
 export const ExpenseForm = (props) => {
   const [title, setTitle] = useState("");
@@ -52,34 +51,46 @@ export const ExpenseForm = (props) => {
   return (
     <Form>
       <FirstDiv>
-        <Input
-          id="name"
-          labelName="Название"
-          inputType="text"
-          placeholder="Введите текст"
-          onChange={titleInputChangeHandler}
-          value={title}
-        ></Input>
 
-        <Input
-          id="date"
-          labelName="Дата"
-         type="date"
-          placeholder="дд.мм.гггг"
-             
-          value={date}
-          onChange={dateInputChangeHandler}
-        ></Input>
+        <div>
+          <StyledLabel htmlFor="title">Название</StyledLabel>
+          <Input
+            id="name"
+            htmlFor="title"
+            labelName="Название"
+            inputType="text"
+            placeholder="Введите текст"
+            onChange={titleInputChangeHandler}
+            value={title}
+          ></Input>
+        </div>
+
+        <div>
+          <StyledLabel htmlFor="date">Дата</StyledLabel>
+          <Input
+            id="date"
+            labelName="Дата"
+            name="date"
+            type="date"
+            placeholder="дд.мм.гггг"
+            value={date}
+            onChange={dateInputChangeHandler}
+          ></Input>
+        </div>
       </FirstDiv>
 
       <SecondDiv>
-        <Input
-          id="price"
-          labelName="Количество денег"
-          inputType="number"
-          value={price}
-          onChange={priceInputChangeHandler}
-        ></Input>
+         
+          <StyledLabel htmlFor="price">Price</StyledLabel>
+          <Input
+            id="price"
+            name="price"
+            labelName="Количество денег"
+            inputType="number"
+            value={price}
+            onChange={priceInputChangeHandler}
+          ></Input>
+         
       </SecondDiv>
 
       <ThirdDiv>
@@ -90,7 +101,6 @@ export const ExpenseForm = (props) => {
     </Form>
   );
 };
-
 
 const ButTon = styled.button`
   margin: 5px;
@@ -120,6 +130,7 @@ const SecondDiv = styled.div`
   margin-top: 20px;
   display: flex;
   justify-content: flex-start;
+  flex-direction: column;
 `;
 const ThirdDiv = styled.div`
   display: flex;
@@ -133,5 +144,12 @@ const Input = styled.input`
   height: 35px;
   border-radius: 6px;
   border: none;
-  
+  margin-top: 10px;
+  padding: 0 10px;
+`;
+
+const StyledLabel = styled.label`
+ color: #1f1f1f;
+ font-size: 1rem;
+ font-weight: 500 ;
 `;

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { ExpenseForm } from "../expensesForms/expenseForm"
-import './new-expense.css'
+ 
 import styled from "styled-components"
 
 const ButTon = styled.button`
